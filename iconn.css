@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+*{ margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Poppins", sans-serif;
+}
+
+.header{
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+  min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(banner.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/* navigation styles start here */
+
+header {
+ padding-top: 20px;
+  padding-left: 25px;
+  text-align: center;
+  position: relative;
+  z-index: 999;
+  width: 100%;
+}
+.nav-toggler {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggler:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggler-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggler-label span,
+.nav-toggler-label span::before,
+.nav-toggler-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggler-label span::before,
+.nav-toggler-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggler-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggler-label span::after {
+  top: 7px;
+}
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background: rgb(222, 52, 26);
+  width: 40%;
+  height: 1000%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+  padding-top: 6%;
+  z-index: 2;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+  padding: 5%;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+.nav-toggler:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggler:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+.text-box{
+margin-top: 7%;
+width: 83%;
+color: #fff;
+position: absolute;
+transform: translate(10%, 10%);
+text-align: center;
+margin-top: 15%;
+}
+.text-box h1{
+    font-size: 20px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid #f44336;
+    background: #f44336;
+    transition: 1s ;
+}
+/* for whole screen when nav align vertically with red line */
+
+@media screen and (min-width: 800px) {
+  .nav-toggler-label {
+    display: none;
+  }
+ .text-box h1{
+    font-size: 62px;
+}
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo {
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    all: unset; /* this causes issues with Edge, since it's unsupported */
+    padding: 5%;
+    /* the following lines are not from my video, but add Edge support */
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    /* end Edge support stuff */
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    
+  } 
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  /* for black line over links */
+  nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0%;
+    background:rgb(224, 25, 25);
+    position: absolute;
+    transition: 0.5s;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/*course section 2 */
+ .course{
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  padding-top: 100px;
+ }
+ h1{
+  font-size: 36px;
+  font-weight: 600;
+ }
+ p{
+  color: #777;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+  padding: 10px;
+ }
+ .row{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+ }
+ .course-col{
+  flex-basis: 31%;
+  background: #fff3f3;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+ }
+ h3{
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+ }
+ .course-col:hover{
+  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+ }
+
+ /* for responsive section of course */
+ @media screen and (max-width: 800px){
+  .row{
+    flex-direction: column;
+  }
+ }
+
+/*cAMPUS SECTION 3*/
+.campus{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+.campus-col{
+  flex-basis: 32%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+  /* for red bg */
+}
+.campus-col img{
+  width: 100%;
+  display: block;
+}
+.layer{
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;/* for red bg on photo */
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.layer:hover{
+  background: rgba(226,0,0,0.7);
+}
+.layer h3{
+  font-weight: 500;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* align h3 at bottom */
+  position: absolute; /*align h3 bottom */
+  opacity: 0;/* not visible h3*/
+  transition:   0.5 ;
+}
+/* to visible h3 while hovering only*/
+.layer:hover h3{
+  bottom: 49%;
+  opacity: 1;
+}
+
+/*facility section 4 */
+.facility{
+  width: 80%;
+  text-align: center;
+  padding-top: 100px;
+  margin: auto;
+}
+.facility-col{
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+}
+.facility-col img {
+  width: 100%;
+  border-radius: 10px;
+}
+.facility-col p{
+  padding: 0;
+}
+.facility-col h3{
+  margin-top: 16px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/*testimoinal section 5 */
+.testimoinal{
+  margin: auto;
+  padding-top: 100px;
+  width: 80%;
+  text-align: center;
+}
+.testimoinal-col{
+  flex-basis: 44%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: left;
+  background: #fff3f3;
+  padding: 25px;
+  cursor: pointer;
+
+}
+ .testimoinal-col:hover{
+  box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+ }
+.testimoinal-col img{
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 30px;
+  border-radius: 50%; /* img will be circle*/
+}
+.testimoinal-col p{
+  padding: 0;
+}
+.testimoinal-col h3{
+  margin-top: 15px;
+  text-align: left;
+}
+
+/*CAT SECTION section 5 */
+.cta{
+  margin: 100px auto;
+  width: 80%;
+  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(banner2.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  text-align: center;
+  padding: 100px 0;
+}
+.cta h1{
+  color: #fff;
+  margin-bottom: 40px;
+  padding: 0;
+}
+@media(max-width: 700px){
+  .cta h1{
+    font-size: 24px;
+  }
+}
+
+/*footer section 6 */
+.footer{
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+.footer h4{
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+}
